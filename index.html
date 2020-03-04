@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="css/main.css">
+        <title>My VueJS app</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{title}}</h1>
+            <input type="text" class="nes-input" placeholder="Add todo..." v-on:keyup.enter="addTodo">   
+
+         <ul>
+              <li v-for="todo in todos" :key="todo.id" class="flex"> 
+                  <label>
+                    <input type="checkbox" class="nes-checkbox" v-model="todo.done">
+                    <span>&nbsp</span>
+                  </label>
+                 <del v-if="todo.done">{{ todo.text }}</del>
+                 <span v-else>{{ todo.text }}</span>             
+                 <div class="space"></div>
+                 <button class="nes-btn is-error padding" v-on:click="removeTodo(todo.id)">Remove</button>
+              </li>
+          </ul>
+        </div>
+        <script src="js/vue.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
