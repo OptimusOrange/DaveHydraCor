@@ -1,7 +1,7 @@
 let app = new Vue({
   el: "#app",
   data: {
-      title: 'TODOS',
+      title: 'ToDos',
       todos: [
         { text: 'option 1', done: false, id: Date.now() },
         { text: 'option 2', done: false, id: Date.now() + 1 }
@@ -22,10 +22,10 @@ let app = new Vue({
     removeTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id)
     },      
-    check(todo){
+    checkTodo(todo){
       todo.done = !todo.done
       localStorage.setItem('todo' , JSON.stringify(this.todos))
-    }
+    },
   },
   mounted() {
   this.todos=JSON.parse(window.localStorage.getItem('todo'))
