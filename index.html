@@ -11,11 +11,10 @@
         <div id="app">
             <h1>{{title}}</h1>
             <input type="text" class="nes-input" placeholder="Add todo..." v-on:keyup.enter="addTodo">   
-
          <ul>
               <li v-for="todo in todos" :key="todo.id" class="flex"> 
                   <label>
-                    <input type="checkbox" class="nes-checkbox" v-model="todo.done">
+                    <input type="checkbox" class="nes-checkbox" v-model="todo.done" v-on:click="checkTodo(todo)">
                     <span>&nbsp</span>
                   </label>
                  <del v-if="todo.done">{{ todo.text }}</del>
